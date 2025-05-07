@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What We Do - Dr. Kunobwa</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #5a8d51; /* Earthy green */
+            --secondary-color: #a67c52; /* Warm brown */
+            --accent-color: #e9ddc9; /* Cream */
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            color: var(--dark-color);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #467a3e;
+            border-color: #467a3e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -2px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Page Banner */
+        .page-banner {
+            position: relative;
+            padding: 150px 0 100px;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .page-banner h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        /* Intro Section */
+        .intro-section {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        /* Disease Cards Section */
+        .disease-cards {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .disease-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .disease-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .disease-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .disease-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .disease-card:hover .disease-card-img img {
+            transform: scale(1.1);
+        }
+        
+        .disease-card-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .disease-card-body {
+            padding: 30px;
+            position: relative;
+        }
+        
+        .disease-card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .disease-card-text {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .card-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .card-btn:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Natural Remedies Section */
+        .remedies-section {
+            padding: 100px 0;
+            background-color: var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .remedies-section:before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(90, 141, 81, 0.1);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+        }
+        
+        .remedies-section:after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(166, 124, 82, 0.1);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        .remedies-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+        
+        .remedies-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .remedies-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 20px;
+        }
+        
+        .remedies-list li {
+            padding: 10px 0;
+            position: relative;
+            padding-left: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .remedies-list li:before {
+            content: "\f058"; /* Font Awesome check-circle icon */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .testimonial-item {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .testimonial-item:before {
+            content: "\f10d"; /* Font Awesome quote-left icon */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .testimonial-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-info p {
+            margin-bottom: 0;
+            color: var(--secondary-color);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-light {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-light:hover {
+            background-color: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .footer-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-list li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-list a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-list a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Dr. Kunobwa</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="homepage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutpage.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="whatWedo.html">What We Do</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faithMission.html">Faith & Mission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="getInvolved.html">Get Involved</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Banner -->
+    <div class="page-banner" style="background-image: url('images/banner3.3.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="banner-content" data-aos="fade-up" data-aos-duration="1000">
+                        <h1>Our Healing Areas</h1>
+                        <p class="lead">Natural remedies for common and chronic conditions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Intro Section -->
+    <section class="intro-section" id="intro">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+                    <img src="images/f1.jpg" alt="Natural healing process" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <h2 class="section-title">Natural Healing Approach</h2>
+                    <p class="intro-text">
+                        Dr. Kunobwa employs a holistic approach to healing, focusing on 100% natural remedies to address various health conditions. His methods combine traditional African healing knowledge with scientifically validated botanical properties.
+                    </p>
+                    <p class="intro-text">
+                        Unlike conventional treatments that may include harsh chemicals, our approach utilizes nature's own pharmacy to help the body heal itself. This gentle yet powerful method has proven effective for thousands across Africa.
+                    </p>
+                    <p class="intro-text">
+                        Whether you're dealing with a chronic condition or seeking preventative care, our natural remedies work to restore balance and promote long-term health and wellbeing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disease Cards Section -->
+    <section class="disease-cards" id="conditions">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-title mx-auto" data-aos="fade-up">Conditions We Treat</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Natural solutions for various health challenges</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Cancerous Wounds Card -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
+                    <div class="disease-card" id="cancer-wounds">
+                        <div class="disease-card-img">
+                            <img src="images/cancer1.jpg" alt="Cancerous Wounds Treatment">
+                        </div>
+                        <div class="disease-card-body">
+                            <div class="disease-card-icon">
+                                <i class="fas fa-band-aid"></i>
+                            </div>
+                            <br>
+                            <h3 class="disease-card-title">Cancerous Wounds</h3>
+                            <p class="disease-card-text">
+                                Our specialized plant-based remedies help heal cancerous wounds, reduce inflammation, and promote tissue regeneration naturally.
+                            </p>
+                            <a href="#" class="card-btn">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cancer Card -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="disease-card" id="cancer">
+                        <div class="disease-card-img">
+                            <img src="images/cncer2.jpg" alt="Cancer Treatment">
+                        </div>
+                        <div class="disease-card-body">
+                            <div class="disease-card-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <br>
+                            <h3 class="disease-card-title">Cancer</h3>
+                            <p class="disease-card-text">
+                                Our natural approach to cancer focuses on strengthening the immune system and using plant compounds that have shown anti-cancer properties.
+                            </p>
+                            <a href="#" class="card-btn">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diabetes Card -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="disease-card" id="diabetes">
+                        <div class="disease-card-img">
+                            <img src="images/diabete1.jpg" alt="Diabetes Treatment">
+                        </div>
+                        <div class="disease-card-body">
+                            <div class="disease-card-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <br>
+                            <h3 class="disease-card-title">Diabetes</h3>
+                            <p class="disease-card-text">
+                                Our natural diabetes protocol includes specific herbs and dietary recommendations to help regulate blood sugar and improve insulin sensitivity.
+                            </p>
+                            <a href="#" class="card-btn">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- High Blood Pressure Card -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="disease-card" id="bp">
+                        <div class="disease-card-img">
+                            <img src="images/pressure.jpg" alt="High Blood Pressure Treatment">
+                        </div>
+                        <div class="disease-card-body">
+                            <div class="disease-card-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <br>
+                            <h3 class="disease-card-title">High Blood Pressure</h3>
+                            <p class="disease-card-text">
+                                Our natural approach to hypertension uses specific plants and lifestyle modifications to help normalize blood pressure without harsh side effects.
+                            </p>
+                            <a href="#" class="card-btn">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fibroids Card -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="disease-card" id="fibroids">
+                        <div class="disease-card-img">
+                            <img src="images/Fibroids.jpg" alt="Fibroids Treatment">
+                        </div>
+                        <div class="disease-card-body">
+                            <div class="disease-card-icon">
+                                <i class="fas fa-female"></i>
+                            </div>
+                            <br>
+                            <h3 class="disease-card-title">Fibroids</h3>
+                            <p class="disease-card-text">
+                                Our natural fibroid treatments help reduce fibroid size and symptoms through specialized herb combinations and nutritional guidance.
+                            </p>
+                            <a href="#" class="card-btn">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Illnesses Card -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="disease-card" id="other">
+                        <div class="disease-card-img">
+                            <img src="/api/placeholder/400/200" alt="Other Illnesses Treatment">
+                        </div>
+                        <div class="disease-card-body">
+                            <div class="disease-card-icon">
+                                <i class="fas fa-plus-square"></i>
+
+                            </div>
+                            <br>
+                            <h3 class="disease-card-title">Other Illnesses</h3>
+                            <p class="disease-card-text">
+                                We offer natural solutions for various other conditions including arthritis, digestive disorders, skin conditions, and respiratory issues.
+                            </p>
+                            <a href="#" class="card-btn">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Natural Remedies Section -->
+    <section class="remedies-section" id="remedies">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-title mx-auto" data-aos="fade-up">Our Natural Remedies</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">100% nature-based, chemical-free healing solutions</p>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000">
+                    <h3>Natural Healing Philosophy</h3>
+                    <p class="intro-text">
+                        At the heart of Dr. Kunobwa's approach is the belief that nature provides everything needed for healing. Our remedies harness the powerful medicinal properties of plants, herbs, and natural elements that have been used for generations across Africa.
+                    </p>
+                    
+                    <h4 class="mt-4">Key Benefits of Our Natural Approach:</h4>
+                    <ul class="remedies-list">
+                        <li>No chemical additives or synthetic compounds</li>
+                        <li>Addresses root causes rather than just symptoms</li>
+                        <li>Minimal to no side effects compared to conventional medicine</li>
+                        <li>Supports the body's natural healing mechanisms</li>
+                        <li>Tailored to individual needs and conditions</li>
+                        <li>Sustainable and environmentally friendly</li>
+                        <li>Integrated with spiritual and lifestyle guidance</li>
+                    </ul>
+                    
+                    <div class="mt-4">
+                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-5 mb-lg-0 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="remedies-image">
+                        <img src="images/f.h1.jpg" alt="Natural remedies and herbs" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-title mx-auto" data-aos="fade-up">Healing Stories</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Real experiences from those who found health through natural healing</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Testimonial 1 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
+                    <div class="testimonial-item">
+                        <p class="testimonial-text">
+                            "After struggling with diabetes for 8 years, Dr. Kunobwa's natural treatment helped stabilize my blood sugar in just 3 months. I've reduced my medication by half and feel more energetic than I have in years."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="/api/placeholder/60/60" alt="Sarah M.">
+                            <div class="testimonial-info">
+                                <h4>Sarah M.</h4>
+                                <p>Kampala, Uganda</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-item">
+                        <p class="testimonial-text">
+                            "I had large fibroids that caused severe pain and bleeding. After 6 months on Dr. Kunobwa's herbal protocol, my fibroids have shrunk significantly, and my symptoms have almost disappeared. I'm grateful for this natural approach."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="/api/placeholder/60/60" alt="Jane K.">
+                            <div class="testimonial-info">
+                                <h4>Jane K.</h4>
+                                <p>Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-item">
+                        <p class="testimonial-text">
+                            "The doctors gave me little hope for my cancerous wound, but Dr. Kunobwa's treatment began healing it within weeks. The natural remedies worked when nothing else did. I'm now cancer-free for 2 years."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="/api/placeholder/60/60" alt="Robert T.">
+                            <div class="testimonial-info">
+                                <h4>Robert T.</h4>
+                                <p>Dar es Salaam, Tanzania</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="cta-title">Ready to Begin Your Healing Journey?</h2>
+                    <p class="cta-text">
+                        Contact Dr. Kunobwa today to learn how natural remedies can help with your specific health concerns. Consultations are available in person or remotely for those unable to travel.
+                    </p>
+                    <div>
+                        <a href="contact.html" class="btn btn-light">Contact Us Today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- About Column -->
+                <div class="col-md-4 mb-5">
+                    <h3 class="footer-title">Dr. Kunobwa Godfrey Muwanga</h3>
+                    <p>Natural healer, missionary and evangelist with over 13 years of experience healing lives across Africa with 100% natural remedies.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links Column -->
+                <div class="col-md-4 mb-5">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="what-we-do.html">What We Do</a></li>
+                        <li><a href="community.html">Community Outreach</a></li>
+                        <li><a href="faith.html">Faith & Mission</a></li>
+                        <li><a href="get-involved.html">Get Involved</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info Column -->
+                <div class="col-md-4 mb-5">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-list">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Kawempe Ttula II, LC 1, Uganda</li>
+                        <li><i class="fas fa-phone me-2"></i> +256 (0) 000 000 000</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@drkunobwa.org</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright">
+                        <p>&copy; 2025 Dr. Kunobwa Godfrey Muwanga. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    </script>
+</body>
+</html>

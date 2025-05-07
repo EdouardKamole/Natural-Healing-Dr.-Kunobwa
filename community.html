@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Outreach - Dr. Kunobwa</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #5a8d51; /* Earthy green */
+            --secondary-color: #a67c52; /* Warm brown */
+            --accent-color: #e9ddc9; /* Cream */
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            color: var(--dark-color);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #467a3e;
+            border-color: #467a3e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -2px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Page Banner */
+        .page-banner {
+            position: relative;
+            padding: 150px 0 100px;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .page-banner h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        /* Section Styles */
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .section-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        /* Mission Impact Section */
+        .impact-box {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .impact-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .impact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .impact-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* Story Blocks */
+        .story-block {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .story-block:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .story-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .story-block:hover .story-image img {
+            transform: scale(1.1);
+        }
+        
+        .story-content {
+            position: relative;
+            padding: 30px;
+            background-color: white;
+        }
+        
+        .story-location {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 5px 15px;
+            border-radius: 20px;
+            position: absolute;
+            top: -15px;
+            left: 20px;
+        }
+        
+        .story-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+        
+        /* Gallery Section */
+        .gallery-container {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .gallery-item {
+            padding: 5px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            padding: 15px;
+            color: white;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+        
+        /* Countries Section */
+        .countries-section {
+            background-color: var(--accent-color);
+            position: relative;
+        }
+        
+        .country-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .country-flag {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .country-name {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        /* Volunteer CTA */
+        .volunteer-cta {
+            background-color: var(--primary-color);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .volunteer-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .volunteer-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-light {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-light:hover {
+            background-color: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .footer-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-list li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-list a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-list a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Dr. Kunobwa</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="homepage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutpage.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="whatWedo.html">What We Do</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faithMission.html">Faith & Mission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="getInvolved.html">Get Involved</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Banner -->
+    <div class="page-banner" style="background-image: url('images/banner4.4.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="banner-content" data-aos="fade-up" data-aos-duration="1000">
+                        <h1>Healing in the Heart of Africa</h1>
+                        <p class="lead">Serving communities across 6 African nations with natural healing and compassion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mission Impact Section -->
+    <section class="section-padding bg-light" id="impact">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-title mx-auto" data-aos="fade-up">Our Impact</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Making a difference through natural healing and education</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Impact Box 1 -->
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up">
+                    <div class="impact-box text-center">
+                        <div class="impact-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="impact-number" id="years-counter">13+</div>
+                        <h3>Years</h3>
+                        <p>Of dedicated service healing communities through natural remedies</p>
+                    </div>
+                </div>
+                
+                <!-- Impact Box 2 -->
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="impact-box text-center">
+                        <div class="impact-icon">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <div class="impact-number" id="countries-counter">6</div>
+                        <h3>Countries</h3>
+                        <p>Serving communities across Uganda, Kenya, Tanzania, Zambia, Ethiopia, and South Africa</p>
+                    </div>
+                </div>
+                
+                <!-- Impact Box 3 -->
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="impact-box text-center">
+                        <div class="impact-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="impact-number" id="people-counter">1000+</div>
+                        <h3>People Helped</h3>
+                        <p>Thousands of individuals have found healing through our natural remedies</p>
+                    </div>
+                </div>
+                
+                <!-- Impact Box 4 -->
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="impact-box text-center">
+                        <div class="impact-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="impact-number" id="remedies-counter">100%</div>
+                        <h3>Natural</h3>
+                        <p>All our treatments use only natural ingredients sourced from local environments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Blocks Section -->
+    <section class="section-padding" id="stories">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-title mx-auto" data-aos="fade-up">Our Mission Stories</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Bringing healing to communities across Africa</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Story Block 1 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
+                    <div class="story-block">
+                        <div class="story-image">
+                            <img src="/api/placeholder/400/250" alt="Uganda Outreach">
+                        </div>
+                        <div class="story-content">
+                            <span class="story-location">Uganda</span>
+                            <h3 class="story-title">Rural Uganda Healing Camp</h3>
+                            <p>Our mobile healing camp in remote villages of Uganda provided natural treatments to over 200 people suffering from chronic diseases with limited access to healthcare.</p>
+                            <a href="#" class="card-btn">Read Full Story <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story Block 2 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="story-block">
+                        <div class="story-image">
+                            <img src="/api/placeholder/400/250" alt="Kenya Outreach">
+                        </div>
+                        <div class="story-content">
+                            <span class="story-location">Kenya</span>
+                            <h3 class="story-title">Nairobi Community Clinic</h3>
+                            <p>Our two-week clinic in underserved neighborhoods of Nairobi provided diabetes and hypertension treatments using local medicinal plants to help community members.</p>
+                            <a href="#" class="card-btn">Read Full Story <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story Block 3 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="story-block">
+                        <div class="story-image">
+                            <img src="/api/placeholder/400/250" alt="Tanzania Outreach">
+                        </div>
+                        <div class="story-content">
+                            <span class="story-location">Tanzania</span>
+                            <h3 class="story-title">Healing in Dar es Salaam</h3>
+                            <p>Working with local health workers in Tanzania, we conducted workshops on natural remedies for common ailments and provided treatments for chronic conditions.</p>
+                            <a href="#" class="card-btn">Read Full Story <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <!-- Story Block 4 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
+                    <div class="story-block">
+                        <div class="story-image">
+                            <img src="/api/placeholder/400/250" alt="Zambia Outreach">
+                        </div>
+                        <div class="story-content">
+                            <span class="story-location">Zambia</span>
+                            <h3 class="story-title">Lusaka Healing Mission</h3>
+                            <p>Our team traveled to Lusaka to provide cancer treatments using specialized plant compounds, bringing hope to patients with limited treatment options.</p>
+                            <a href="#" class="card-btn">Read Full Story <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story Block 5 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="story-block">
+                        <div class="story-image">
+                            <img src="/api/placeholder/400/250" alt="Ethiopia Outreach">
+                        </div>
+                        <div class="story-content">
+                            <span class="story-location">Ethiopia</span>
+                            <h3 class="story-title">Ethiopian Mountain Villages</h3>
+                            <p>Reaching remote mountain villages in Ethiopia, we provided natural treatments for respiratory conditions common in high-altitude communities.</p>
+                            <a href="#" class="card-btn">Read Full Story <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story Block 6 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="story-block">
+                        <div class="story-image">
+                            <img src="/api/placeholder/400/250" alt="South Africa Outreach">
+                        </div>
+                        <div class="story-content">
+                            <span class="story-location">South Africa</span>
+                            <h3 class="story-title">Johannesburg Healing Initiative</h3>
+                            <p>Working alongside local healers in South Africa, we conducted a month-long program combining traditional African medicine with our natural healing approaches.</p>
+                            <a href="#" class="card-btn">Read Full Story <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section-padding bg-light" id="gallery">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-title mx-auto" data-aos="fade-up">Photo Gallery</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Glimpses of our healing missions across Africa</p>
+                </div>
+            </div>
+            
+            <div class="row gallery-container">
+                <!-- Gallery Item 1 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 gallery-item" data-aos="fade-up">
+                    <a href="/api/placeholder/800/600" data-lightbox="community-gallery" data-title="Treatment session in rural Uganda">
+                        <img src="/api/placeholder/400/250" alt="Uganda mission">
+                        <div class="gallery-caption">Treatment session in rural Uganda</div>
+                    </a>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <a href="/api/placeholder/800/600" data-lightbox="community-gallery" data-title="Preparing natural remedies with local plants">
+                        <img src="/api/placeholder/400/250" alt="Preparing remedies">
+                        <div class="gallery-caption">Preparing natural remedies with local plants</div>
+                    </a>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <a href="/api/placeholder/800/600" data-lightbox="community-gallery" data-title="Community gathering in Kenya">
+                        <img src="/api/placeholder/400/250" alt="Kenya community">
+                        <div class="gallery-caption">Community gathering in Kenya</div>
+                    </a>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <a href="/api/placeholder/800/600" data-lightbox="community-gallery" data-title="Healing session in Tanzania">
+                        <img src="/api/placeholder/400/250" alt="Tanzania healing">
+                        <div class="gallery-caption">Healing session in Tanzania</div>
+                    </a>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 gallery-item" data-aos="fade-up">
+                    <a href="/api/placeholder/800/600" data-lightbox="community-gallery" data-title="Outreach team in Zambia">
+                        <img src="/api/placeholder/400/250" alt="Zambia team">
+                        <div class="gallery-caption">Outreach team in Zambia</div>
+                    </a>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <a href="/api/placeholder/800/600" data-lightbox="community-gallery" data-title="Health education seminar">
+                        <img src="/api/placeholder/400/250" alt="Health education">
+                        <div class="gallery-caption">Health education seminar</div>
+                    </a>
+                </div>
+                
+                <!-- Gallery Item 7 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <a href="/api/placeholder/800/600" data-lightbox="community-gallery" data-title="Ethiopian mountain community treatment">
+                        <img src="/api/placeholder/400/250" alt="Ethiopia mission">
+                        <div class="gallery-caption">Ethiopian mountain community treatment</div>
+                    </a>
+                </div>
+                
+                <!-- Gallery Item 8 -->
+                <div class="col-sm-6 col-md-4 col-lg-3 gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <a href="/api/placeholder/800/600" data-lightbox="community-gallery" data-title="Healing session in South Africa">
+                        <img src="/api/placeholder/400/250" alt="South Africa healing">
+                        <div class="gallery-caption">Healing session in South Africa</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countries Section -->
+    <section class="countries-section section-padding" id="countries">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-title mx-auto" data-aos="fade-up">Countries We Serve</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Our healing mission spans across 6 African nations</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Uganda -->
+                <div class="col-6 col-md-4 col-lg-2 country-item" data-aos="fade-up">
+                    <span class="country-flag">🇺🇬</span>
+                    <h3 class="country-name">Uganda</h3>
+                </div>
+                
+                <!-- Kenya -->
+                <div class="col-6 col-md-4 col-lg-2 country-item" data-aos="fade-up" data-aos-delay="100">
+                    <span class="country-flag">🇰🇪</span>
+                    <h3 class="country-name">Kenya</h3>
+                </div>
+                
+                <!-- Tanzania -->
+                <div class="col-6 col-md-4 col-lg-2 country-item" data-aos="fade-up" data-aos-delay="200">
+                    <span class="country-flag">🇹🇿</span>
+                    <h3 class="country-name">Tanzania</h3>
+                </div>
+                
+                <!-- Zambia -->
+                <div class="col-6 col-md-4 col-lg-2 country-item" data-aos="fade-up" data-aos-delay="300">
+                    <span class="country-flag">🇿🇲</span>
+                    <h3 class="country-name">Zambia</h3>
+                </div>
+                
+                <!-- Ethiopia -->
+                <div class="col-6 col-md-4 col-lg-2 country-item" data-aos="fade-up" data-aos-delay="400">
+                    <span class="country-flag">🇪🇹</span>
+                    <h3 class="country-name">Ethiopia</h3>
+                </div>
+                
+                <!-- South Africa -->
+                <div class="col-6 col-md-4 col-lg-2 country-item" data-aos="fade-up" data-aos-delay="500">
+                    <span class="country-flag">🇿🇦</span>
+                    <h3 class="country-name">South Africa</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer CTA Section -->
+    <section class="volunteer-cta" id="volunteer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="volunteer-title" data-aos="fade-up">Join Us in the Mission</h2>
+                    <p class="volunteer-text" data-aos="fade-up" data-aos-delay="100">
+                        We're always looking for passionate volunteers to help us bring natural healing 
+                        to more communities across Africa. Whether you're a healthcare professional, 
+                        educator, or simply passionate about helping others, there's a place for you in our mission.
+                    </p>
+                    <a href="get-involved.html" class="btn btn-light btn-lg" data-aos="fade-up" data-aos-delay="200">
+                        Become a Volunteer <i class="fas fa-heart ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h3 class="footer-title">Dr. Kunobwa Godfrey Muwanga</h3>
+                    <p>Natural healer, missionary, and evangelist dedicated to bringing healing through faith and nature to communities across Africa.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 mb-4">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-list">
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="aboutpage.html">About Us</a></li>
+                        <li><a href="whatWedo.html">What We Do</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="faithMission.html">Faith & Mission</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-list">
+                        <li><a href="what-we-do.html#cancer">Cancer Treatment</a></li>
+                        <li><a href="what-we-do.html#diabetes">Diabetes</a></li>
+                        <li><a href="what-we-do.html#pressure">High Blood Pressure</a></li>
+                        <li><a href="what-we-do.html#fibroids">Fibroids</a></li>
+                        <li><a href="what-we-do.html#other">Other Illnesses</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-list">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Kawempe Ttula II, LC 1, Uganda</li>
+                        <li><i class="fas fa-phone me-2"></i> +256 XXX XXX XXX</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@drkunobwa.org</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Dr. Kunobwa Natural Healing Ministry. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Counter Animation
+        function animateCounter(elementId, endValue, duration) {
+            const element = document.getElementById(elementId);
+            const startTime = Date.now();
+            
+            function updateCounter() {
+                const currentTime = Date.now();
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+                
+                let displayValue;
+                if (typeof endValue === 'string' && endValue.includes('%')) {
+                    // For percentage values
+                    const numericValue = parseInt(endValue);
+                    displayValue = Math.floor(numericValue * progress) + '%';
+                } else if (typeof endValue === 'string' && endValue.includes('+')) {
+                    // For values with + sign
+                    const numericValue = parseInt(endValue);
+                    displayValue = Math.floor(numericValue * progress) + '+';
+                } else {
+                    // For regular numeric values
+                    displayValue = Math.floor(endValue * progress);
+                }
+                
+                element.textContent = displayValue;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                }
+            }
+            
+            updateCounter();
+        }
+        
+        // Check if element is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+        
+        // Start counter animation when scrolled into view
+        function handleCounterAnimation() {
+            const impactSection = document.getElementById('impact');
+            
+            if (isElementInViewport(impactSection)) {
+                animateCounter('years-counter', 13, 2000);
+                animateCounter('countries-counter', 6, 2000);
+                animateCounter('people-counter', 1000, 2000);
+                animateCounter('remedies-counter', '100%', 2000);
+                
+                // Remove scroll event listener once animation has started
+                window.removeEventListener('scroll', handleCounterAnimation);
+            }
+        }
+        
+        // Add scroll event listener for counter animation
+        window.addEventListener('scroll', handleCounterAnimation);
+        // Trigger on page load in case section is already in viewport
+        handleCounterAnimation();
+        
+        // Initialize Lightbox
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'showImageNumberLabel': false
+        });
+    </script>
+</body>
+</html>

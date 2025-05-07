@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Kunobwa - Natural Healing with Compassion</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #5a8d51; /* Earthy green */
+            --secondary-color: #a67c52; /* Warm brown */
+            --accent-color: #e9ddc9; /* Cream */
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            color: var(--dark-color);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #467a3e;
+            border-color: #467a3e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -2px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .hero-bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        /* Mission Section */
+        .mission {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+        
+        .mission-content {
+            padding: 30px;
+        }
+        
+        .mission-image {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mission-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .mission-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Impact Section */
+        .impact {
+            padding: 100px 0;
+            background-color: var(--accent-color);
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .testimonial-card {
+            padding: 30px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(90, 141, 81, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .testimonial-author-info h5 {
+            margin-bottom: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 70px 0 20px;
+        }
+        
+        .footer-widget h5 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-widget h5:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-widget ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-widget ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-widget ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-widget ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            padding-top: 20px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Counter Animation */
+        .counter-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.6s; }
+        .delay-3 { animation-delay: 0.9s; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="homepage.html">Dr. Kunobwa</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="homepage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutpage.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="whatWedo.html">What We Do</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community Outreach</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faithMission.html">Faith & Mission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="getInvolved.html">Get Involved</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('images/banner3.3.jpg');">
+        <!-- Replace with actual image path when you have it -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 hero-content">
+                    <h1 class="fade-in">Natural Healing with Compassion</h1>
+                    <p class="fade-in delay-1">13+ Years Healing Lives Across Africa with Natural Remedies</p>
+                    <div class="fade-in delay-2">
+                        <a href="aboutpage.html" class="btn btn-primary me-3">Learn More</a>
+                        <a href="contact.html" class="btn btn-outline">Contact Dr. Kunobwa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="mission-image">
+                        <img src="images/ROY_2000.JPG" alt="Dr. Kunobwa's Mission"> <!-- Replace with actual image path -->
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="mission-content">
+                        <h2 class="mb-4">Our Mission</h2>
+                        <p class="lead mb-4">We are dedicated to bringing natural healing practices to communities across Africa, combining traditional knowledge with modern understanding to restore health and well-being.</p>
+                        <p>Dr. Kunobwa Godfrey Muwanga has spent more than 13 years perfecting natural remedies that heal without harmful chemicals or side effects. Our approach focuses on whole-person care – treating both the physical ailment and supporting spiritual wellbeing.</p>
+                        <a href="aboutpage.html" class="btn btn-primary mt-3">Learn About Our Journey</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Highlights -->
+    <section class="impact">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2>Our Impact</h2>
+                <p class="lead">Bringing natural healing to thousands across Africa</p>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="counter-container">
+                            <span class="counter-value" data-count="13">0</span><span>+</span>
+                        </div>
+                        <h5>Years</h5>
+                        <p>Of healing experience</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <div class="counter-container">
+                            <span class="counter-value" data-count="6">0</span>
+                        </div>
+                        <h5>African Nations</h5>
+                        <p>Spreading natural healing</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="counter-container">
+                            <span class="counter-value" data-count="1000">0</span><span>+</span>
+                        </div>
+                        <h5>People Reached</h5>
+                        <p>Lives transformed through natural healing</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="counter-container">
+                            <span class="counter-value" data-count="100">0</span><span>%</span>
+                        </div>
+                        <h5>Natural Remedies</h5>
+                        <p>No chemicals, only nature's healing power</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2>Healing Stories</h2>
+                <p class="lead">Real experiences from those who found healing</p>
+            </div>
+            <div class="row" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "After trying modern medicine without success for my chronic condition, Dr. Kunobwa's natural remedies gave me back my health and hope. His approach treats both body and spirit."
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="/api/placeholder/100/100" alt="Sarah"> <!-- Replace with actual image -->
+                            <div class="testimonial-author-info">
+                                <h5>Sarah N.</h5>
+                                <p>Kampala, Uganda</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "Dr. Kunobwa treated my mother's diabetic complications with his natural remedies when we had lost hope. Three months later, she was able to reduce her medication significantly."
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="/api/placeholder/100/100" alt="James"> <!-- Replace with actual image -->
+                            <div class="testimonial-author-info">
+                                <h5>James M.</h5>
+                                <p>Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "The community outreach program brought healing to our village where medical care is scarce. Dr. Kunobwa not only treated our ailments but taught us how to prevent them naturally."
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="/api/placeholder/100/100" alt="Grace"> <!-- Replace with actual image -->
+                            <div class="testimonial-author-info">
+                                <h5>Grace T.</h5>
+                                <p>Arusha, Tanzania</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="300">
+                <a href="community.html" class="btn btn-primary">Read More Stories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <div class="footer-widget">
+                        <h5>About Dr. Kunobwa</h5>
+                        <p>Dr. Kunobwa Godfrey Muwanga is dedicated to bringing natural healing to communities across Africa through faith, natural remedies, and compassionate care.</p>
+                        <div class="mt-4">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-5">
+                    <div class="footer-widget">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="homepage.html">Home</a></li>
+                            <li><a href="aboutpage.html">About Us</a></li>
+                            <li><a href="whatWedo.html">What We Do</a></li>
+                            <li><a href="community.html">Community</a></li>
+                            <li><a href="faithMission.html">Faith & Mission</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <div class="footer-widget">
+                        <h5>Get Involved</h5>
+                        <ul>
+                            <li><a href="getInvolved.html">Volunteer</a></li>
+                            <li><a href="getInvolved.html">Donate</a></li>
+                            <li><a href="getInvolved.html">Partner With Us</a></li>
+                            <li><a href="getInvolved.html">FAQs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <div class="footer-widget">
+                        <h5>Contact Us</h5>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Kawempe Ttula II, LC 1</p>
+                        <p><i class="fas fa-phone me-2"></i> +256 XXX XXX XXX</p>
+                        <p><i class="fas fa-envelope me-2"></i> contact@drkunobwa.org</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p>&copy; 2025 Dr. Kunobwa Godfrey Muwanga. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Counter Animation -->
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Counter Animation
+            const counters = document.querySelectorAll('.counter-value');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-count');
+                    const count = +counter.innerText.replace(/[^0-9]/g, '');
+                    const increment = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                // Start counting when element is in viewport
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCount();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(counter);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faith & Mission | Dr. Kunobwa Natural Healing</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #5a8d3f; /* Green */
+            --secondary-color: #8d6e3f; /* Warm brown */
+            --light-color: #f8f5f0; /* Warm cream */
+            --dark-color: #2d2a26; /* Dark brown */
+            --accent-color: #3f8d8a; /* Teal */
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e0d5c0' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .bg-pattern-cross {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235a8d3f' fill-opacity='0.1'%3E%3Cpath d='M30 0v60M60 30H0'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/api/placeholder/1200/800") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--secondary-color);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .verse-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-left: 5px solid var(--primary-color);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .verse-text {
+            font-style: italic;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: var(--dark-color);
+        }
+        
+        .verse-reference {
+            font-weight: 600;
+            text-align: right;
+            color: var(--primary-color);
+        }
+        
+        .faith-healing-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .faith-healing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .faith-healing-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .faith-healing-card .card-body {
+            padding: 1.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .img-caption {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+        
+        .sermon-section {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .sermon-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .sermon-box:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .sermon-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sermon-date {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .pathway-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        /* Animations */
+        .typing-animation {
+            overflow: hidden;
+            border-right: .15em solid var(--primary-color);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-color) }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <strong>Dr. Kunobwa</strong> <span class="text-muted">Natural Healing</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="homepage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutpage.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="whatWedo.html">What We Do</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community Outreach</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="faithMission.html">Faith & Mission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="getInvolved.html">Get Involved</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="display-3 fw-bold mb-4">Faith & Healing United</h1>
+                    <p class="lead mb-4">Walking in the footsteps of Christ as healer, teacher, and evangelist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evangelist Role Section -->
+    <section class="py-5 bg-pattern">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" data-aos="fade-up">The Evangelist's Calling</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">
+                        Dr. Kunobwa Godfrey Muwanga serves as both a natural healer and an evangelist in the Seventh-day Adventist Church, combining spiritual ministry with physical healing.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="/api/placeholder/600/400" alt="Dr. Kunobwa evangelizing" class="img-fluid rounded shadow">
+                    <p class="img-caption mt-2">Dr. Kunobwa sharing the message of health and healing</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h3 class="mb-3">Called to Serve</h3>
+                    <p>
+                        For over 13 years, Dr. Kunobwa has been answering a divine calling to heal both body and soul across Africa. His work as an evangelist in the Seventh-day Adventist Church has allowed him to reach thousands with messages of hope, faith, and natural healing.
+                    </p>
+                    <p>
+                        The Seventh-day Adventist Church has a long tradition of health ministry, seeing the body as the temple of God and advocating for natural remedies and preventive care. Dr. Kunobwa builds on this foundation, taking healing directly to communities across Uganda, Kenya, Tanzania, Zambia, Ethiopia, and South Africa.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="verse-box mt-5" data-aos="fade-up">
+                <p class="verse-text mb-0" id="verse">
+                    "He sent His word and healed them, and delivered them from their destructions."
+                </p>
+                <p class="verse-reference mt-2">Psalm 107:20</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration of Faith and Healing -->
+    <section class="py-5 bg-pattern-cross">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Faith & Healing: Inseparable Partners</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">
+                        At the heart of our mission is the belief that true healing addresses the whole person—body, mind, and spirit.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-up">
+                    <div class="faith-healing-card">
+                        <img src="/api/placeholder/400/300" alt="Natural healing" class="w-100">
+                        <div class="card-body">
+                            <h3 class="h5 mb-3">Natural Remedies</h3>
+                            <p>God's creation provides powerful healing agents that work in harmony with the body. Our approach uses these divine gifts to restore health without harmful chemicals.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faith-healing-card">
+                        <img src="/api/placeholder/400/300" alt="Prayer and healing" class="w-100">
+                        <div class="card-body">
+                            <h3 class="h5 mb-3">Prayer & Healing</h3>
+                            <p>We believe in the power of prayer as an essential component of the healing journey. Spiritual health and physical health go hand in hand in God's plan for restoration.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faith-healing-card">
+                        <img src="/api/placeholder/400/300" alt="Testimonies of healing" class="w-100">
+                        <div class="card-body">
+                            <h3 class="h5 mb-3">Testimonies of Grace</h3>
+                            <p>Countless stories of healing serve as powerful testimonies to God's love and care. These miracles of restoration become tools for evangelism and hope.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-8 offset-lg-2" data-aos="fade-up">
+                    <blockquote class="blockquote text-center">
+                        <p>"True healing must address the whole person. Our work is to restore God's image in humanity—physically, mentally, and spiritually."</p>
+                        <footer class="blockquote-footer">Dr. Kunobwa Godfrey Muwanga</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sermon Section -->
+    <section class="sermon-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title text-white" data-aos="fade-up">Faith Messages</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">
+                        Selected sermons and teachings on faith, healing, and living God's way
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="sermon-box">
+                        <p class="sermon-title">Healing in the Gospel: Christ's Ministry of Restoration</p>
+                        <p class="sermon-date">Featured Sermon</p>
+                        <p class="mb-0">This sermon explores the healing ministry of Jesus Christ and how it serves as a model for our work today.</p>
+                    </div>
+                    
+                    <div class="sermon-box">
+                        <p class="sermon-title">The Power of Natural Healing in Scripture</p>
+                        <p class="sermon-date">Featured Teaching</p>
+                        <p class="mb-0">Examining biblical examples of natural remedies and God's design for health.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="sermon-box">
+                        <p class="sermon-title">The Temple of God: Caring for Body and Soul</p>
+                        <p class="sermon-date">Featured Message</p>
+                        <p class="mb-0">Understanding our bodies as temples of the Holy Spirit and the implications for health and healing.</p>
+                    </div>
+                    
+                    <div class="sermon-box">
+                        <p class="sermon-title">Hope in Times of Illness: A Faith Perspective</p>
+                        <p class="sermon-date">Featured Devotional</p>
+                        <p class="mb-0">Finding spiritual strength and purpose during challenging health journeys.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4 justify-content-center">
+                <div class="col-md-6 text-center">
+                    <button class="btn btn-outline-light btn-lg" data-aos="fade-up">
+                        Request Sermon Materials <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SDA Activities -->
+    <section class="py-5 bg-pattern">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Faith + Community + Healing Pathway</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">
+                        Our integrated approach creates pathways to wellness and spiritual growth
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row text-center">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="pathway-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3 class="h4 mb-3">Faith Foundation</h3>
+                    <p>Rooted in Seventh-day Adventist principles of wholistic health, our mission begins with acknowledging God as the ultimate healer and source of wisdom.</p>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pathway-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="h4 mb-3">Community Outreach</h3>
+                    <p>We extend Christ's healing ministry through community services, health education, and natural healing clinics in underserved areas across Africa.</p>
+                </div>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pathway-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="h4 mb-3">Wholistic Healing</h3>
+                    <p>Our approach integrates natural remedies, spiritual guidance, health education, and ongoing support to address the whole person.</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-8 text-center">
+                    <a href="get-involved.html" class="btn btn-primary btn-lg" data-aos="fade-up">
+                        Join Our Mission <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5" style="background-color: #f0eae0;">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Lives Transformed</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">
+                        Testimonies of faith and healing from those we've served
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="bg-white p-4 rounded shadow" data-aos="fade-up">
+                                    <p class="lead fst-italic">"After suffering with diabetes for years, Dr. Kunobwa introduced me to natural remedies and prayer. Today, my blood sugar is stable, and my faith is stronger than ever."</p>
+                                    <p class="text-end mb-0"><strong>Sarah M.</strong> from Kenya</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="bg-white p-4 rounded shadow" data-aos="fade-up">
+                                    <p class="lead fst-italic">"The healing mission that came to our village didn't just treat our physical ailments; they shared hope through God's word that transformed our community."</p>
+                                    <p class="text-end mb-0"><strong>James K.</strong> from Tanzania</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="bg-white p-4 rounded shadow" data-aos="fade-up">
+                                    <p class="lead fst-italic">"When doctors gave up on my cancer treatment, Dr. Kunobwa showed me God's natural remedies. Both my body and spirit have been healed through this ministry."</p>
+                                    <p class="text-end mb-0"><strong>Ruth B.</strong> from Uganda</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h2 class="h1 mb-2" data-aos="fade-right">Ready to support our faith-based healing mission?</h2>
+                    <p class="lead mb-0" data-aos="fade-right" data-aos-delay="100">Join us in spreading natural healing and God's word across Africa</p>
+                </div>
+                <div class="col-lg-4 text-lg-end" data-aos="fade-left">
+                    <a href="get-involved.html" class="btn btn-outline-light btn-lg">Get Involved</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Dr. Kunobwa Natural Healing</h5>
+                    <p>Combining faith, natural remedies, and community outreach to bring healing across Africa for over 13 years.</p>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="homepage.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="aboutpage.html" class="text-white text-decoration-none">About Us</a></li>
+                        <li><a href="whatWedo.html" class="text-white text-decoration-none">What We Do</a></li>
+                        <li><a href="community.html" class="text-white text-decoration-none">Community Outreach</a></li>
+                        <li><a href="faithMission.html" class="text-white text-decoration-none">Faith & Mission</a></li>
+                        <li><a href="getInvolved.html" class="text-white text-decoration-none">Get Involved</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-uppercase mb-4">Contact</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Kawempe Ttula II, LC 1</p>
+                    <p><i class="fas fa-phone me-2"></i> +256 (0) 123-456-789</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@drkunobwa.org</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Dr. Kunobwa Natural Healing. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for healing ministry</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Bible verse typing animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const verseElement = document.getElementById('verse');
+            const verseText = verseElement.textContent;
+            
+            // First clear the text
+            verseElement.textContent = '';
+            
+            // Then type it out
+            let i = 0;
+            function typeWriter() {
+                if (i < verseText.length) {
+                    verseElement.textContent += verseText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            // Start the typing animation when the verse is in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(typeWriter, 500);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            observer.observe(verseElement);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

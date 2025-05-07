@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved - Natural Healing with Compassion</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary: #2c8a43;
+            --secondary: #8a6d2c;
+            --accent: #e9c46a;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --earth-brown: #54442b;
+            --leaf-green: #4a7c59;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            user-select: none;
+        }
+        
+        h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 2.2rem;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+        
+        .btn {
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--leaf-green);
+            border-color: var(--leaf-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--earth-brown);
+            border-color: var(--earth-brown);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: var(--dark);
+        }
+        
+        .btn-accent:hover {
+            background-color: #d4b35c;
+            border-color: #d4b35c;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-lg {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+        }
+        
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+        
+        .card {
+            border-radius: 15px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .card-text {
+            font-size: 1.1rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            min-height: 60vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Volunteer Section */
+        .volunteer-section {
+            background-color: var(--light);
+        }
+        
+        .volunteer-card {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .volunteer-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Donation Section */
+        .donation-section {
+            background: linear-gradient(135deg, var(--leaf-green) 0%, var(--primary) 100%);
+            color: white;
+        }
+        
+        .donation-tier {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .donation-tier:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .donation-tier h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .donation-tier p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+        
+        /* Partner Section */
+        .partner-section {
+            background-color: white;
+        }
+        
+        .partner-logo {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .partner-logo img {
+            max-height: 100%;
+            max-width: 100%;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo img:hover {
+            opacity: 1;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--light);
+        }
+        
+        .accordion-item {
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .accordion-button {
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 20px;
+            background-color: white;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .accordion-body {
+            padding: 20px;
+            font-size: 1.1rem;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .final-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        footer h5 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        footer p, footer a {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        /* Form Styles */
+        .form-control {
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #e9ecef;
+            margin-bottom: 20px;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary);
+        }
+        
+        label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        /* Thank You Message */
+        .thank-you-message {
+            display: none;
+            padding: 30px;
+            background-color: var(--light);
+            border-left: 5px solid var(--primary);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        /* Custom Animations */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--leaf-green);
+        }
+        
+        /* Payment Modal */
+        .payment-modal .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .payment-modal .modal-header {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 20px 30px;
+        }
+        
+        .payment-modal .modal-body {
+            padding: 30px;
+        }
+        
+        .payment-modal .modal-footer {
+            border: none;
+            padding: 20px 30px;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .payment-method {
+            margin: 0 10px;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-method.active {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            h3 {
+                font-size: 1.8rem;
+            }
+            
+            p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .btn-lg {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2::after {
+                width: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (Placeholder - assumes you have a site-wide navbar) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Natural Healing</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="homepage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutpage.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="whatWedo.html">What We Do</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faithMission.html">Faith & Mission</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="getInvolved.html">Get Involved</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" data-aos="fade">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1 data-aos="fade-up" data-aos-delay="100">Join Our Healing Mission</h1>
+                    <p data-aos="fade-up" data-aos-delay="200">Together, we can bring natural healing and hope to communities across Africa</p>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <a href="#volunteer" class="btn btn-primary btn-lg me-3">Volunteer</a>
+                        <a href="#donate" class="btn btn-accent btn-lg">Donate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="volunteer-section section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Volunteer With Us</h2>
+                <p>Share your skills and compassion to support our healing mission</p>
+            </div>
+            
+            <div class="row mb-5">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="volunteer-card card h-100">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Outreach Support</h3>
+                        <p>Join our field teams bringing healing to rural communities across Africa</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="volunteer-card card h-100">
+                        <i class="fas fa-briefcase-medical"></i>
+                        <h3>Medical Expertise</h3>
+                        <p>Contribute your medical knowledge to enhance our natural healing approaches</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="volunteer-card card h-100">
+                        <i class="fas fa-laptop"></i>
+                        <h3>Remote Support</h3>
+                        <p>Help with administration, coordination, and digital presence from anywhere</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="card-title text-center mb-4">Volunteer Application</h3>
+                            <form id="volunteerForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="firstName" class="form-label">First Name *</label>
+                                            <input type="text" class="form-control" id="firstName" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="lastName" class="form-label">Last Name *</label>
+                                            <input type="text" class="form-control" id="lastName" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Areas of Interest *</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="outreach" id="outreachCheck">
+                                        <label class="form-check-label" for="outreachCheck">
+                                            Outreach Support
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="medical" id="medicalCheck">
+                                        <label class="form-check-label" for="medicalCheck">
+                                            Medical Assistance
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="administrative" id="adminCheck">
+                                        <label class="form-check-label" for="adminCheck">
+                                            Administrative Support
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="other" id="otherCheck">
+                                        <label class="form-check-label" for="otherCheck">
+                                            Other
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Tell us about your skills and how you'd like to help</label>
+                                    <textarea class="form-control" id="message" rows="4"></textarea>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg">Submit Application</button>
+                                </div>
+                                <div class="thank-you-message mt-4" id="volunteerThankYou">
+                                    <h4><i class="fas fa-check-circle text-success me-2"></i> Thank you for your interest!</h4>
+                                    <p>We've received your volunteer application and will contact you shortly to discuss how you can join our mission.</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="donation-section section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2 class="text-white">Support Our Mission</h2>
+                <p class="text-white">Your donations help us bring natural healing to those who need it most</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="donation-tier">
+                        <i class="fas fa-leaf fa-3x mb-4"></i>
+                        <h3>$25</h3>
+                        <h4>Seed Support</h4>
+                        <p>Provides natural remedies for one patient with minor illnesses</p>
+                        <button class="btn btn-light donate-btn" data-amount="25">Give $25</button>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="donation-tier pulse">
+                        <i class="fas fa-seedling fa-3x mb-4"></i>
+                        <h3>$100</h3>
+                        <h4>Growth Support</h4>
+                        <p>Funds treatment supplies for five patients with chronic conditions</p>
+                        <button class="btn btn-light donate-btn" data-amount="100">Give $100</button>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="donation-tier">
+                        <i class="fas fa-tree fa-3x mb-4"></i>
+                        <h3>$500</h3>
+                        <h4>Harvest Support</h4>
+                        <p>Enables a full community outreach event with treatments for many</p>
+                        <button class="btn btn-light donate-btn" data-amount="500">Give $500</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-6 mx-auto text-center" data-aos="fade-up" data-aos-delay="400">
+                    <p>Prefer to give a custom amount?</p>
+                    <button class="btn btn-accent btn-lg donate-btn" data-amount="custom">Custom Donation</button>
+                    <div class="mt-4">
+                        <div class="d-flex justify-content-center">
+                            <div class="mx-2">
+                                <img src="/api/placeholder/60/30" alt="Secure Payment" class="img-fluid">
+                            </div>
+                            <div class="mx-2">
+                                <img src="/api/placeholder/60/30" alt="PayPal" class="img-fluid">
+                            </div>
+                            <div class="mx-2">
+                                <img src="/api/placeholder/60/30" alt="Credit Cards" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partner-section section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Partners</h2>
+                <p>Organizations working with us to bring healing across Africa</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="partner-logo">
+                        <img src="/api/placeholder/150/80" alt="Partner 1">
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="partner-logo">
+                        <img src="/api/placeholder/150/80" alt="Partner 2">
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="partner-logo">
+                        <img src="/api/placeholder/150/80" alt="Partner 3">
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="partner-logo">
+                        <img src="/api/placeholder/150/80" alt="Partner 4">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-delay="500">
+                    <h3>Become a Partner</h3>
+                    <p>We welcome partnerships with organizations sharing our mission of natural healing and compassion</p>
+                    <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#partnerModal">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about getting involved</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    How can I support if I'm not in Africa?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    You can support our mission from anywhere through donations, remote volunteering with administrative tasks, social media advocacy, or by connecting us with potential partners. Your global support is vital to our mission!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Is my donation tax-deductible?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, all donations are tax-deductible in most countries. We provide official receipts for all contributions. Please consult your local tax regulations or advisor for specific details relevant to your country.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    What skills are most needed for volunteers?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We particularly need medical professionals, administrators, digital marketers, and people with experience in community outreach. However, all skills are welcome! We can find a way for anyone with passion to contribute meaningfully to our mission.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    How are donations used?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Your donations directly support our healing mission. Approximately 85% goes to patient care and natural remedies, 10% to community outreach programs, and 5% to essential administrative costs. We maintain full transparency with detailed annual reports on our website.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="500">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    Can I specify what my donation is used for?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we welcome directed donations. When donating, you can specify if you'd like your gift to support a particular country, treatment program, or community initiative. Just include a note with your donation or contact us directly.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" data-aos="fade">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 data-aos="fade-up" data-aos-delay="100">Join Us in Bringing Healing Across Africa</h2>
+                    <p class="mb-4" data-aos="fade-up" data-aos-delay="200">Every contribution, whether time, skills, or resources, helps expand our reach to those in need</p>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <a href="#volunteer" class="btn btn-primary btn-lg me-3">Volunteer Today</a>
+                        <a href="#donate" class="btn btn-accent btn-lg">Make a Donation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Natural Healing</h5>
+                    <p>Bringing compassionate natural healing and hope to communities across Africa for over 13 years.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Dr. Kunobwa</a></li>
+                        <li><a href="#">What We Do</a></li>
+                        <li><a href="#">Community Outreach</a></li>
+                        <li><a href="#">Faith & Mission</a></li>
+                        <li><a href="#">Get Involved</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Kawempe Ttula II, LC 1, Uganda</p>
+                    <p><i class="fas fa-phone me-2"></i> +256 (0) 123 456 789</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@naturalhealing.org</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Natural Healing with Compassion. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div class="modal fade payment-modal" id="paymentModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Make a Donation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <h3 id="donationAmount">$<span>100</span></h3>
+                        <p>Thank you for your generosity!</p>
+                    </div>
+                    <form id="donationForm">
+                        <div class="mb-3" id="customAmountContainer" style="display: none;">
+                            <label for="customAmount" class="form-label">Enter donation amount ($)</label>
+                            <input type="number" class="form-control form-control-lg" id="customAmount" min="1" value="100">
+                        </div>
+                        <div class="mb-3">
+                            <label for="donorName" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="donorName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="donorEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="donorEmail">
+                        </div>
+                        <div class="payment-methods mb-4">
+                            <div class="payment-method active">
+                                <img src="/api/placeholder/60/40" alt="Credit Card" class="img-fluid">
+                            </div>
+                            <div class="payment-method">
+                                <img src="/api/placeholder/60/40" alt="PayPal" class="img-fluid">
+                            </div>
+                            <div class="payment-method">
+                                <img src="/api/placeholder/60/40" alt="Mobile Money" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="receiptCheck" checked>
+                            <label class="form-check-label" for="receiptCheck">Send me a receipt by email</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="completeDonation">Complete Donation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partner Modal -->
+    <div class="modal fade" id="partnerModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: var(--primary); color: white;">
+                    <h5 class="modal-title">Become a Partner</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="partnerForm">
+                        <div class="mb-3">
+                            <label for="organizationName" class="form-label">Organization Name</label>
+                            <input type="text" class="form-control" id="organizationName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contactPerson" class="form-label">Contact Person</label>
+                            <input type="text" class="form-control" id="contactPerson" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="partnerEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="partnerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="partnerPhone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="partnerPhone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="partnershipType" class="form-label">Partnership Interest</label>
+                            <select class="form-select" id="partnershipType">
+                                <option selected>Select partnership type</option>
+                                <option value="funding">Financial Support</option>
+                                <option value="medical">Medical Resources</option>
+                                <option value="operational">Operational Support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="partnerMessage" class="form-label">Tell us about your organization and partnership interests</label>
+                            <textarea class="form-control" id="partnerMessage" rows="4"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="submitPartnership">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: var(--primary); color: white;">
+                    <h5 class="modal-title">Thank You!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-5">
+                    <i class="fas fa-check-circle text-success fa-4x mb-4"></i>
+                    <h3 id="thankYouTitle">Thank you for your donation!</h3>
+                    <p id="thankYouMessage">Your generous support helps us bring natural healing to communities across Africa.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Volunteer Form Submit
+        document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would normally send the form data to a server
+            // For demonstration, we'll just show the thank you message
+            
+            document.getElementById('volunteerThankYou').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to thank you message
+            document.getElementById('volunteerThankYou').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        });
+        
+        // Donation Button Clicks
+        const donateButtons = document.querySelectorAll('.donate-btn');
+        donateButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const amount = this.getAttribute('data-amount');
+                const amountDisplay = document.querySelector('#donationAmount span');
+                const customAmountContainer = document.getElementById('customAmountContainer');
+                
+                if (amount === 'custom') {
+                    customAmountContainer.style.display = 'block';
+                    amountDisplay.textContent = document.getElementById('customAmount').value;
+                } else {
+                    customAmountContainer.style.display = 'none';
+                    amountDisplay.textContent = amount;
+                }
+                
+                // Show payment modal
+                const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+                paymentModal.show();
+            });
+        });
+        
+        // Custom Amount Input Change
+        document.getElementById('customAmount').addEventListener('input', function() {
+            document.querySelector('#donationAmount span').textContent = this.value;
+        });
+        
+        // Payment Method Selection
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', function() {
+                paymentMethods.forEach(m => m.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Complete Donation
+        document.getElementById('completeDonation').addEventListener('click', function() {
+            // Here you would normally process the payment
+            // For demonstration, we'll just show the thank you modal
+            
+            const paymentModal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
+            paymentModal.hide();
+            
+            document.getElementById('thankYouTitle').textContent = 'Thank you for your donation!';
+            document.getElementById('thankYouMessage').textContent = 'Your generous support helps us bring natural healing to communities across Africa.';
+            
+            const thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+            thankYouModal.show();
+            
+            // Reset form
+            document.getElementById('donationForm').reset();
+        });
+        
+        // Submit Partnership
+        document.getElementById('submitPartnership').addEventListener('click', function() {
+            // Here you would normally send the form data to a server
+            // For demonstration, we'll just show the thank you modal
+            
+            const partnerModal = bootstrap.Modal.getInstance(document.getElementById('partnerModal'));
+            partnerModal.hide();
+            
+            document.getElementById('thankYouTitle').textContent = 'Thank you for your interest!';
+            document.getElementById('thankYouMessage').textContent = 'We\'ve received your partnership request and will contact you shortly to discuss collaboration opportunities.';
+            
+            const thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+            thankYouModal.show();
+            
+            // Reset form
+            document.getElementById('partnerForm').reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
