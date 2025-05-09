@@ -20,7 +20,7 @@
             --primary-color: #5a8d3f; /* Green */
             --secondary-color: #8d6e3f; /* Warm brown */
             --light-color: #f8f5f0; /* Warm cream */
-            --dark-color: #2d2a26; /* Dark brown */
+            --dark-color: #2c3e50; /* Dark brown */
             --accent-color: #3f8d8a; /* Teal */
         }
         
@@ -31,9 +31,39 @@
             overflow-x: hidden;
         }
         
+        /* Navbar */
         .navbar {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -2px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
         }
         
         .bg-pattern {
@@ -48,7 +78,7 @@
         .hero-section {
             position: relative;
             height: 70vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/api/placeholder/1200/800") center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/banner\ faith.jpg") center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -200,42 +230,40 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <strong>Dr. Kunobwa</strong> <span class="text-muted">Natural Healing</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="homepage.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="aboutpage.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="whatWedo.html">What We Do</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="community.html">Community Outreach</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="faithMission.html">Faith & Mission</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="getInvolved.html">Get Involved</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="homepage.html">Dr. Kunobwa</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link " href="homepage.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutpage.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="whatWedo.html">What We Do</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="community.html">Community Outreach</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="faithMission.html">Faith & Mission</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="getInvolved.html">Get Involved</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -263,7 +291,7 @@
             
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
-                    <img src="/api/placeholder/600/400" alt="Dr. Kunobwa evangelizing" class="img-fluid rounded shadow">
+                    <img src="images/pray image.jpg" alt="Dr. Kunobwa evangelizing" class="img-fluid rounded shadow">
                     <p class="img-caption mt-2">Dr. Kunobwa sharing the message of health and healing</p>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
@@ -301,7 +329,7 @@
             <div class="row">
                 <div class="col-lg-4 mb-4" data-aos="fade-up">
                     <div class="faith-healing-card">
-                        <img src="/api/placeholder/400/300" alt="Natural healing" class="w-100">
+                        <img src="images/naturel1.jpg" alt="Natural healing" class="w-100">
                         <div class="card-body">
                             <h3 class="h5 mb-3">Natural Remedies</h3>
                             <p>God's creation provides powerful healing agents that work in harmony with the body. Our approach uses these divine gifts to restore health without harmful chemicals.</p>
@@ -311,7 +339,7 @@
                 
                 <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="faith-healing-card">
-                        <img src="/api/placeholder/400/300" alt="Prayer and healing" class="w-100">
+                        <img src="images/natural2.jpg" alt="Prayer and healing" class="w-100">
                         <div class="card-body">
                             <h3 class="h5 mb-3">Prayer & Healing</h3>
                             <p>We believe in the power of prayer as an essential component of the healing journey. Spiritual health and physical health go hand in hand in God's plan for restoration.</p>
@@ -321,7 +349,7 @@
                 
                 <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="faith-healing-card">
-                        <img src="/api/placeholder/400/300" alt="Testimonies of healing" class="w-100">
+                        <img src="images/natural3.jpg" alt="Testimonies of healing" class="w-100">
                         <div class="card-body">
                             <h3 class="h5 mb-3">Testimonies of Grace</h3>
                             <p>Countless stories of healing serve as powerful testimonies to God's love and care. These miracles of restoration become tools for evangelism and hope.</p>
@@ -528,8 +556,8 @@
                 <div class="col-lg-4">
                     <h5 class="text-uppercase mb-4">Contact</h5>
                     <p><i class="fas fa-map-marker-alt me-2"></i> Kawempe Ttula II, LC 1</p>
-                    <p><i class="fas fa-phone me-2"></i> +256 (0) 123-456-789</p>
-                    <p><i class="fas fa-envelope me-2"></i> info@drkunobwa.org</p>
+                    <p><i class="fas fa-phone me-2"></i> +256 +256 756 401373</p>
+                    <p><i class="fas fa-envelope me-2"></i> kunobwagodfrey9@gmail.com</p>
                     <div class="social-icons mt-3">
                         <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
